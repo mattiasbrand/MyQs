@@ -59,15 +59,12 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
-    <Reference Include="System.Data" />
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Windows.Interactivity">
       <HintPath>..\..\lib\Caliburn.Micro.1.2.0\lib\Net40\System.Windows.Interactivity.dll</HintPath>
     </Reference>
-    <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
@@ -84,22 +81,21 @@
     <Compile Include="Caliburn\Micro\Logging\DebugLogger.cs" />
     <Compile Include="IShell.cs" />
     <Compile Include="ShellViewModel.cs" />
-    <Compile Include="ViewModels\ShellViewModel.cs" />
+    <Compile Include="ViewModels\MsmqQueueListViewModel.cs" />
     <Page Include="ShellView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\ShellView.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="Views\MsmqQueueListView.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Views\ShellView.xaml.cs">
-      <DependentUpon>ShellView.xaml</DependentUpon>
-      <SubType>Code</SubType>
+    <Compile Include="Views\MsmqQueueListView.xaml.cs">
+      <DependentUpon>MsmqQueueListView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

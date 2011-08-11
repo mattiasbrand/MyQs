@@ -7,6 +7,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{FEE34B42
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{2F5CC464-6C2C-4E69-9B9B-CBD1A27B5921}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationTests", "IntegrationTests\IntegrationTests.csproj", "{6D1D2F0E-EC6B-4AEE-A587-15909F762E4D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,8 +39,21 @@ Global
 		{2F5CC464-6C2C-4E69-9B9B-CBD1A27B5921}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{2F5CC464-6C2C-4E69-9B9B-CBD1A27B5921}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{2F5CC464-6C2C-4E69-9B9B-CBD1A27B5921}.Release|x86.ActiveCfg = Release|Any CPU
+		{6D1D2F0E-EC6B-4AEE-A587-15909F762E4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D1D2F0E-EC6B-4AEE-A587-15909F762E4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D1D2F0E-EC6B-4AEE-A587-15909F762E4D}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{6D1D2F0E-EC6B-4AEE-A587-15909F762E4D}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{6D1D2F0E-EC6B-4AEE-A587-15909F762E4D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6D1D2F0E-EC6B-4AEE-A587-15909F762E4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D1D2F0E-EC6B-4AEE-A587-15909F762E4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D1D2F0E-EC6B-4AEE-A587-15909F762E4D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{6D1D2F0E-EC6B-4AEE-A587-15909F762E4D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{6D1D2F0E-EC6B-4AEE-A587-15909F762E4D}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6D1D2F0E-EC6B-4AEE-A587-15909F762E4D} = {FEE34B42-24A1-4645-B122-A8764CE78F72}
 	EndGlobalSection
 EndGlobal
