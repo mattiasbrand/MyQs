@@ -81,12 +81,17 @@
     <Compile Include="Caliburn\Micro\Logging\DebugLogger.cs" />
     <Compile Include="IShell.cs" />
     <Compile Include="ShellViewModel.cs" />
-    <Compile Include="ViewModels\MsmqQueueListViewModel.cs" />
+    <Compile Include="ViewModels\MessageQueueViewModel.cs" />
+    <Compile Include="ViewModels\MessageQueueListViewModel.cs" />
     <Page Include="ShellView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\MsmqQueueListView.xaml">
+    <Page Include="Views\MessageQueueView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MessageQueueListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -94,8 +99,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Views\MsmqQueueListView.xaml.cs">
-      <DependentUpon>MsmqQueueListView.xaml</DependentUpon>
+    <Compile Include="Views\MessageQueueView.xaml.cs">
+      <DependentUpon>MessageQueueView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MessageQueueListView.xaml.cs">
+      <DependentUpon>MessageQueueListView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -125,11 +133,13 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Lib\Caliburn.Micro.dll" />
-    <Content Include="Lib\System.Windows.Interactivity.dll" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{2F5CC464-6C2C-4E69-9B9B-CBD1A27B5921}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

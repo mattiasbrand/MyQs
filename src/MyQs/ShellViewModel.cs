@@ -9,9 +9,9 @@ namespace MyQs.Wpf
     {
         public ShellViewModel()
         {
-            MessageQueueList = new MsmqQueueListViewModel();
+            MessageQueueList = new MessageQueueListViewModel();
         }
 
-        public MsmqQueueListViewModel MessageQueueList { get; set; }
+        public MessageQueueListViewModel MessageQueueList { get; set; }
     }
 }
