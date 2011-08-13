@@ -1,8 +1,8 @@
 ﻿namespace MyQs.Wpf.Views
 {
-    public partial class MessageQueueView
+    public partial class MessageQueueListItemView
     {
-        public MessageQueueView()
+        public MessageQueueListItemView()
         {
             InitializeComponent();
         }

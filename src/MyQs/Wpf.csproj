@@ -79,15 +79,22 @@
     </ApplicationDefinition>
     <Compile Include="AppBootstrapper.cs" />
     <Compile Include="Caliburn\Micro\Logging\DebugLogger.cs" />
+    <Compile Include="Events\MessageQueueSelected.cs" />
     <Compile Include="IShell.cs" />
-    <Compile Include="ShellViewModel.cs" />
-    <Compile Include="ViewModels\MessageQueueViewModel.cs" />
+    <Compile Include="ViewModels\MessageContent.cs" />
+    <Compile Include="ViewModels\ShellViewModel.cs" />
+    <Compile Include="ViewModels\MessageQueueContentViewModel.cs" />
+    <Compile Include="ViewModels\MessageQueueListItemViewModel.cs" />
     <Compile Include="ViewModels\MessageQueueListViewModel.cs" />
-    <Page Include="ShellView.xaml">
+    <Page Include="Views\ShellView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\MessageQueueView.xaml">
+    <Page Include="Views\MessageQueueContentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MessageQueueListItemView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -99,8 +106,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Views\MessageQueueView.xaml.cs">
-      <DependentUpon>MessageQueueView.xaml</DependentUpon>
+    <Compile Include="Views\MessageQueueContentView.xaml.cs">
+      <DependentUpon>MessageQueueContentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MessageQueueListItemView.xaml.cs">
+      <DependentUpon>MessageQueueListItemView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MessageQueueListView.xaml.cs">
       <DependentUpon>MessageQueueListView.xaml</DependentUpon>

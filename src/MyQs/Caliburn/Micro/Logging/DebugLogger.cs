@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Diagnostics;
+using Caliburn.Micro;
+using Caliburn.Micro.Logging;
 
-namespace Caliburn.Micro.Logging
+namespace MyQs.Wpf.Caliburn.Micro.Logging
 {
   /// <summary>
   /// Implementation of the ILog and ILogExtended interfaces using

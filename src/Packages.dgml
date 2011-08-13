@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph GraphDirection="LeftToRight" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="Tests\IntegrationTests" Label="IntegrationTests" Category="Project" />
+    <Node Id="NUnit 2.5.10.11092" Label="NUnit 2.5.10.11092" Category="Package" />
+    <Node Id="RhinoMocks 3.6" Label="RhinoMocks 3.6" Category="Package" />
+    <Node Id="Shouldly 1.0.1.73" Label="Shouldly 1.0.1.73" Category="Package" />
+    <Node Id="Wpf" Label="Wpf" Category="Project" />
+    <Node Id="Caliburn.Micro 1.2.0" Label="Caliburn.Micro 1.2.0" Category="Package" />
+    <Node Id="Autofac 2.5.1.827" Label="Autofac 2.5.1.827" Category="Package" />
+    <Node Id="Caliburn.Micro.Autofac 1.2.0" Label="Caliburn.Micro.Autofac 1.2.0" Category="Package" />
+    <Node Id="Caliburn.Micro.Logging 1.2" Label="Caliburn.Micro.Logging 1.2" Category="Package" />
+    <Node Id="NLog 2.0.0.2000" Label="NLog 2.0.0.2000" Category="Package" />
+    <Node Id="Caliburn.Micro.Logging.NLog 1.0" Label="Caliburn.Micro.Logging.NLog 1.0" Category="Package" />
+  </Nodes>
+  <Links>
+    <Link Source="Shouldly 1.0.1.73" Target="RhinoMocks 3.6" Category="Package Dependency" />
+    <Link Source="Tests\IntegrationTests" Target="NUnit 2.5.10.11092" Category="Installed Package" />
+    <Link Source="Tests\IntegrationTests" Target="Shouldly 1.0.1.73" Category="Installed Package" />
+    <Link Source="Caliburn.Micro.Autofac 1.2.0" Target="Caliburn.Micro 1.2.0" Category="Package Dependency" />
+    <Link Source="Caliburn.Micro.Autofac 1.2.0" Target="Autofac 2.5.1.827" Category="Package Dependency" />
+    <Link Source="Caliburn.Micro.Logging 1.2" Target="Caliburn.Micro 1.2.0" Category="Package Dependency" />
+    <Link Source="Caliburn.Micro.Logging.NLog 1.0" Target="Caliburn.Micro.Logging 1.2" Category="Package Dependency" />
+    <Link Source="Caliburn.Micro.Logging.NLog 1.0" Target="NLog 2.0.0.2000" Category="Package Dependency" />
+    <Link Source="Wpf" Target="Caliburn.Micro.Autofac 1.2.0" Category="Installed Package" />
+    <Link Source="Wpf" Target="Caliburn.Micro.Logging.NLog 1.0" Category="Installed Package" />
+  </Links>
+  <Categories>
+    <Category Id="Project" />
+    <Category Id="Package" />
+  </Categories>
+  <Styles>
+    <Style TargetType="Node" GroupLabel="Project" ValueLabel="True">
+      <Condition Expression="HasCategory('Project')" />
+      <Setter Property="Background" Value="Blue" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Package Dependency" ValueLabel="True">
+      <Condition Expression="HasCategory('Package Dependency')" />
+      <Setter Property="Background" Value="Yellow" />
+    </Style>
+  </Styles>
+</DirectedGraph>
