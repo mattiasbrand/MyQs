@@ -1,10 +1,9 @@
-using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Messaging;
 using Caliburn.Micro;
 using MyQs.Core.Extensions;
 using MyQs.Wpf.Events;
+using Message = System.Messaging.Message;
 
 namespace MyQs.Wpf.ViewModels
 {
@@ -25,9 +24,29 @@ namespace MyQs.Wpf.ViewModels
             NotifyOfPropertyChange(() => Messages);
         }
 
-        public IList<string> Messages { get
+        public IList<string> Messages
         {
-            return new List<string>(_queue.ListMessageNames());
-        } }
+            get
+            {
+                return new List<string>(_queue.ListMessageNames());
+            }
+        }
+
+        private string _selectedMessage;
+        public string SelectedMessage
+        {
+            get { return _selectedMessage; }
+            set
+            {
+                _selectedMessage = value;
+                if (string.IsNullOrEmpty(value)) return;
+
+                var firstDelimiter = _selectedMessage.IndexOf(':');
+                var id = _selectedMessage;
+                if(firstDelimiter > 0) id = _selectedMessage.Substring(0, _selectedMessage.IndexOf(':'));
+
+                _eventAggregator.Publish(new MessageSelected(_queue, id));
+            }
+        }
     }
 }

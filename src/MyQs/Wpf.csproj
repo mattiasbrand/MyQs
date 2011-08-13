@@ -80,12 +80,17 @@
     <Compile Include="AppBootstrapper.cs" />
     <Compile Include="Caliburn\Micro\Logging\DebugLogger.cs" />
     <Compile Include="Events\MessageQueueSelected.cs" />
+    <Compile Include="Events\MessageSelected.cs" />
     <Compile Include="IShell.cs" />
-    <Compile Include="ViewModels\MessageContent.cs" />
+    <Compile Include="ViewModels\MessageContentViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="ViewModels\MessageQueueContentViewModel.cs" />
     <Compile Include="ViewModels\MessageQueueListItemViewModel.cs" />
     <Compile Include="ViewModels\MessageQueueListViewModel.cs" />
+    <Page Include="Views\MessageContentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ShellView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -105,6 +110,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\MessageContentView.xaml.cs">
+      <DependentUpon>MessageContentView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MessageQueueContentView.xaml.cs">
       <DependentUpon>MessageQueueContentView.xaml</DependentUpon>
