@@ -7,14 +7,14 @@ using MyQs.Wpf.Events;
 
 namespace MyQs.Wpf.ViewModels
 {
-    public class MessageQueueListViewModel : PropertyChangedBase
+    public class MessageQueueListViewModel : PropertyChangedBase, IHandle<MachineSelected>
     {
         private readonly IEventAggregator _eventAggregator;
 
         public MessageQueueListViewModel(IEventAggregator eventAggregator)
         {
             _eventAggregator = eventAggregator;
-            SelectedMachineName = Environment.MachineName;
+            _eventAggregator.Subscribe(this);
         }
 
         public ObservableCollection<MessageQueueListItemViewModel> MessageQueues
@@ -36,6 +36,11 @@ namespace MyQs.Wpf.ViewModels
                 _selectedMessageQueue = value;
                 _eventAggregator.Publish(new MessageQueueSelected(value.MessageQueue));
             }
+        }
+
+        public void Handle(MachineSelected message)
+        {
+            SelectedMachineName = message.MachineName;
         }
     }
 }

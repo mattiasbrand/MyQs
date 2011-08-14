@@ -71,6 +71,9 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WPF.Themes">
+      <HintPath>..\..\lib\wpfthemes.0.0.1\lib\WPF.Themes.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -79,6 +82,7 @@
     </ApplicationDefinition>
     <Compile Include="AppBootstrapper.cs" />
     <Compile Include="Caliburn\Micro\Logging\DebugLogger.cs" />
+    <Compile Include="Events\MachineSelected.cs" />
     <Compile Include="Events\MessageQueueSelected.cs" />
     <Compile Include="Events\MessageSelected.cs" />
     <Compile Include="IShell.cs" />
