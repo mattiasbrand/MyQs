@@ -1,17 +1,15 @@
-﻿using Caliburn.Micro.Autofac;
+﻿using Autofac;
+using Caliburn.Micro.Autofac;
 using MyQs.Wpf.ViewModels;
 
 namespace MyQs.Wpf
 {
-
 	public class AppBootstrapper : AutofacBootstrapper<ShellViewModel>
 	{
-        protected override void ConfigureBootstrapper()
+        protected override void ConfigureContainer(Autofac.ContainerBuilder builder)
         {
-            base.ConfigureBootstrapper();
-			//batch.AddExportedValue<IWindowManager>(new WindowManager());
-			//batch.AddExportedValue<IEventAggregator>(new EventAggregator());
-		}
-
+            base.ConfigureContainer(builder);
+            builder.RegisterType<Settings>().As<ISettings>();
+        }
 	}
 }

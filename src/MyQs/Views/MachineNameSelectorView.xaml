@@ -1,0 +1,12 @@
+﻿<UserControl x:Class="MyQs.Wpf.Views.MachineNameSelectorView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"             >
+    <StackPanel Orientation="Vertical">
+        <Label>Machine</Label>
+        <StackPanel Orientation="Horizontal">
+            <TextBox Name="NewMachineName" Width="200" />
+            <Button Name="AddMachine" Content="Add" />
+        </StackPanel>
+        <ComboBox Name="MachineNames" MinWidth="100" Width="100" HorizontalAlignment="Left" />
+    </StackPanel>
+</UserControl>

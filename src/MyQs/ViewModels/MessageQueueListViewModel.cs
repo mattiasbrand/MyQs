@@ -17,16 +17,18 @@ namespace MyQs.Wpf.ViewModels
             _eventAggregator.Subscribe(this);
         }
 
+
+
+        public string SelectedMachineName { get; set; }
+
         public ObservableCollection<MessageQueueListItemViewModel> MessageQueues
         {
             get
             {
+                if (string.IsNullOrEmpty(SelectedMachineName)) return null;
                 return new ObservableCollection<MessageQueueListItemViewModel>(MessageQueue.GetPrivateQueuesByMachine(SelectedMachineName).Select(x => new MessageQueueListItemViewModel(x)));
             }
         }
-
-        public string SelectedMachineName { get; set; }
-
         private MessageQueueListItemViewModel _selectedMessageQueue;
         public MessageQueueListItemViewModel SelectedMessageQueue
         {
@@ -41,6 +43,7 @@ namespace MyQs.Wpf.ViewModels
         public void Handle(MachineSelected message)
         {
             SelectedMachineName = message.MachineName;
+            NotifyOfPropertyChange(() => MessageQueues);
         }
     }
 }
