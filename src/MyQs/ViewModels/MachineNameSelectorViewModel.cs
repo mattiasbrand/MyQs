@@ -1,3 +1,4 @@
+using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 using Caliburn.Micro;
@@ -5,7 +6,7 @@ using MyQs.Wpf.Events;
 
 namespace MyQs.Wpf.ViewModels
 {
-    public class MachineNameSelectorViewModel : PropertyChangedBase
+    public class MachineNameSelectorViewModel : PropertyChangedBase, IHandle<QueueNotFound>
     {
         private readonly IEventAggregator _eventAggregator;
         private readonly ISettings _settings;
@@ -17,6 +18,8 @@ namespace MyQs.Wpf.ViewModels
 
             MachineNames = new ObservableCollection<string>(_settings.MachineNames);
             if (MachineNames.Count == 1) SelectedMachineName = MachineNames.First();
+
+            _eventAggregator.Subscribe(this);
         }
 
         public string NewMachineName { get; set; }
@@ -28,6 +31,16 @@ namespace MyQs.Wpf.ViewModels
             NewMachineName = string.Empty;
             NotifyOfPropertyChange(() => NewMachineName);
         }
+        public void RemoveSelectedMachine()
+        {
+            if (string.IsNullOrEmpty(SelectedMachineName)) return;
+
+            var machineNameToRemove = SelectedMachineName;
+            MachineNames.Remove(machineNameToRemove);
+            _settings.RemoveMachineName(machineNameToRemove);
+
+            NotifyOfPropertyChange(SelectedMachineName);
+        }
 
         public ObservableCollection<string> MachineNames { get; set; }
         private string _selectedMachineName;
@@ -37,8 +50,19 @@ namespace MyQs.Wpf.ViewModels
             set
             {
                 _selectedMachineName = value;
+                SelectedMachineNameErrorText = "";
+                NotifyOfPropertyChange(() => SelectedMachineNameErrorText);
+
                 _eventAggregator.Publish(new MachineSelected(value));
             }
-        }   
+        }
+
+        public string SelectedMachineNameErrorText { get; set; }
+
+        public void Handle(QueueNotFound message)
+        {
+            SelectedMachineNameErrorText = "Queue not found. ";
+            NotifyOfPropertyChange(() => SelectedMachineNameErrorText);
+        }
     }
 }

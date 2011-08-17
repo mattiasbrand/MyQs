@@ -86,6 +86,7 @@
     <Compile Include="Events\MachineSelected.cs" />
     <Compile Include="Events\MessageQueueSelected.cs" />
     <Compile Include="Events\MessageSelected.cs" />
+    <Compile Include="Events\QueueNotFound.cs" />
     <Compile Include="ISettings.cs" />
     <Compile Include="IShell.cs" />
     <Compile Include="Settings.cs" />

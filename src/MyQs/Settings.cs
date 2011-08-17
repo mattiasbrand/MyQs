@@ -37,5 +37,17 @@ namespace MyQs.Wpf
             config.AppSettings.Settings.Add("MachineNames", newMachineNameString);
             config.Save();
         }
+
+        public void RemoveMachineName(string name)
+        {
+            var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            var newMachineNameString = config.AppSettings.Settings["MachineNames"].Value;
+            if (string.IsNullOrEmpty(newMachineNameString)) return;
+            var machineNames = new HashSet<string>(newMachineNameString.Split(','));
+            machineNames.Remove(name);
+            config.AppSettings.Settings.Remove("MachineNames");
+            config.AppSettings.Settings.Add("MachineNames", string.Join(",", machineNames));
+            config.Save();
+        }
     }
 }

@@ -7,6 +7,10 @@
             <TextBox Name="NewMachineName" Width="200" />
             <Button Name="AddMachine" Content="Add" />
         </StackPanel>
-        <ComboBox Name="MachineNames" MinWidth="100" Width="100" HorizontalAlignment="Left" />
+        <StackPanel Orientation="Horizontal">
+            <ComboBox Name="MachineNames" MinWidth="100" Width="100" HorizontalAlignment="Left" />
+            <Button Name="RemoveSelectedMachine" Content="Remove" />
+            <Label Name="SelectedMachineNameErrorText" Foreground="Red" Width="100">Error</Label>
+        </StackPanel>
     </StackPanel>
 </UserControl>

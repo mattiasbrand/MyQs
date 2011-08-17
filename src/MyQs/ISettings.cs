@@ -6,5 +6,6 @@ namespace MyQs.Wpf
     {
         HashSet<string> MachineNames { get; }
         void AddMachineName(string name);
+        void RemoveMachineName(string name);
     }
 }
